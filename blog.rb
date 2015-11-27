@@ -51,6 +51,7 @@ class Blog
       puts "2. Read a Post"
       puts "3. Update Post"
       puts "4. Delete Post"
+      puts "5. Exit"
       action = gets.chomp
       
       case action 
@@ -72,6 +73,10 @@ class Blog
         puts "Enter title of post you want to delete: "
         title = gets.chomp
         delete_post(title)
+      when "5"
+        exit(0)
+      else
+        puts "Select an option: "
       end
     end
   end
