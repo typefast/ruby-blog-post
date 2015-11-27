@@ -33,7 +33,15 @@ class Blog
   end
   
   def delete_post(title)
-    @posts.delete(title) if @posts.has_key?(title)
+    if @posts.has_key?(title)
+      @posts.delete(title)
+    else
+      puts "Post not found."
+    end
+  end
+  
+  def display
+    @posts.each { |title, content| print title + ", " }
   end
   
   def run
@@ -49,16 +57,18 @@ class Blog
       when "1"
         create_post
       when "2"
-        @posts.each { |title, content| print title + ", " }
+        display()
         
         puts "Enter the title of the post you want to read: \n"
         title = gets.chomp
         read_post(title)
       when "3"
+        display()
         puts "Enter the title of the post you want to update: "
         title = gets.chomp
         update_post(title)
       when "4"
+      display()
         puts "Enter title of post you want to delete: "
         title = gets.chomp
         delete_post(title)
