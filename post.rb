@@ -1,9 +1,9 @@
 
 class Post
-  attr_accessor :title, :post, :time
-  def initialize(title, a_post)
+  attr_accessor :title, :content, :time
+  def initialize(title, content)
     @title = title
-    @post = a_post
+    @content = content
     @time = Time.now.asctime
   end
 end
